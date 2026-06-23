@@ -2,6 +2,15 @@
 
 ![Azure](https://img.shields.io/badge/Azure-Cloud-blue) ![Microsoft Sentinel](https://img.shields.io/badge/Microsoft-Sentinel-green) ![KQL](https://img.shields.io/badge/KQL-Query%20Language-orange) ![IAM](https://img.shields.io/badge/IAM-Identity%20Management-red)
 
+## Project Highlights
+
+- Microsoft Entra ID administration
+- Azure RBAC configuration
+- Log Analytics Workspace
+- Microsoft Sentinel monitoring
+- KQL investigations
+- Audit log analysis
+  
 ## Overview
 
 This project demonstrates a practical identity monitoring lab using Microsoft Azure, Microsoft Entra ID, Log Analytics Workspace, Microsoft Sentinel and KQL.
