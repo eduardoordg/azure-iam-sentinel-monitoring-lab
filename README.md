@@ -1,5 +1,7 @@
 # Azure IAM Monitoring Lab with Microsoft Sentinel
 
+![Azure](https://img.shields.io/badge/Azure-Cloud-blue) ![Microsoft Sentinel](https://img.shields.io/badge/Microsoft-Sentinel-green) ![KQL](https://img.shields.io/badge/KQL-Query%20Language-orange) ![IAM](https://img.shields.io/badge/IAM-Identity%20Management-red)
+
 ## Overview
 
 This project demonstrates a practical identity monitoring lab using Microsoft Azure, Microsoft Entra ID, Log Analytics Workspace, Microsoft Sentinel and KQL.
