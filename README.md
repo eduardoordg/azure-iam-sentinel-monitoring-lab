@@ -129,3 +129,11 @@ The investigation confirmed that the administrative action was successfully logg
 ## Outcome
 
 This lab demonstrates the ability to configure identity monitoring in Azure, collect security-relevant logs, and perform basic investigation using Microsoft Sentinel and KQL.
+
+## Author
+
+**Eduardo Rodrigues**  
+Cloud Infrastructure | Azure | IAM | Security Monitoring
+
+- GitHub: https://github.com/eduardoordg
+- LinkedIn: https://www.linkedin.com/in/eduardoorodrigues/
