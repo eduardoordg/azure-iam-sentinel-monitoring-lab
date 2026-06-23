@@ -1,242 +1,131 @@
-\# Azure IAM \& Sentinel Monitoring Lab
+# Azure IAM Monitoring Lab with Microsoft Sentinel
 
+## Overview
 
+This project demonstrates a practical identity monitoring lab using Microsoft Azure, Microsoft Entra ID, Log Analytics Workspace, Microsoft Sentinel and KQL.
 
-\## Objetivo
+The goal was to simulate a basic corporate identity environment, generate administrative events, send logs to Log Analytics, and investigate them using Kusto Query Language.
 
+## Technologies Used
 
+- Microsoft Entra ID
+- Azure Role-Based Access Control (RBAC)
+- Log Analytics Workspace
+- Microsoft Sentinel
+- Azure Diagnostic Settings
+- Kusto Query Language (KQL)
 
-Este laboratório foi criado para demonstrar conhecimentos práticos em gerenciamento de identidades, auditoria e monitoramento de segurança utilizando Microsoft Azure.
+## Lab Scenario
 
+A fictitious company environment was created to simulate identity and access management activities.
 
+Users created:
 
-O ambiente simula um cenário corporativo básico onde usuários e grupos são administrados no Microsoft Entra ID, logs são enviados para o Log Analytics Workspace e eventos são investigados com consultas KQL.
+- João Silva
+- Maria Souza
+- Carlos Lima
 
+Security groups created:
 
+- Financeiro
+- RH
+- TI
 
-\## Tecnologias utilizadas
+RBAC was configured by assigning the Reader role to the TI group at the Resource Group level.
 
+## Architecture
 
-
-\* Microsoft Entra ID
-
-\* Azure Role-Based Access Control (RBAC)
-
-\* Log Analytics Workspace
-
-\* Microsoft Sentinel
-
-\* Kusto Query Language (KQL)
-
-\* Azure Diagnostic Settings
-
-
-
-\## Cenário do laboratório
-
-
-
-Foi criado um ambiente fictício chamado Eduardo Cloud Lab com usuários e grupos simulando departamentos corporativos.
-
-
-
-Usuários criados:
-
-
-
-\* João Silva
-
-\* Maria Souza
-
-\* Carlos Lima
-
-
-
-Grupos criados:
-
-
-
-\* Financeiro
-
-\* RH
-
-\* TI
-
-
-
-Também foi configurado RBAC no Azure, atribuindo a função Leitor ao grupo TI no Resource Group do laboratório.
-
-
-
-\## Arquitetura lógica
-
-
-
+```text
 Microsoft Entra ID
+        ↓
+Users and Groups
+        ↓
+Diagnostic Settings
+        ↓
+Log Analytics Workspace
+        ↓
+Microsoft Sentinel
+        ↓
+KQL Investigation
+```
 
-→ Usuários e grupos
+## Activities Performed
 
-→ Diagnostic Settings
+- Created users in Microsoft Entra ID
+- Created security groups
+- Assigned users to groups
+- Configured Azure RBAC
+- Created a Log Analytics Workspace
+- Enabled Microsoft Sentinel
+- Configured Diagnostic Settings
+- Sent SignInLogs and AuditLogs to Log Analytics
+- Investigated password reset events using KQL
 
-→ Log Analytics Workspace
+## KQL Queries
 
-→ Microsoft Sentinel
-
-→ Consultas KQL e investigação de eventos
-
-
-
-\## Atividades realizadas
-
-
-
-\* Criação de usuários no Microsoft Entra ID
-
-\* Criação de grupos de segurança
-
-\* Associação de usuários a grupos
-
-\* Configuração de RBAC no Azure
-
-\* Criação de Log Analytics Workspace
-
-\* Habilitação do Microsoft Sentinel
-
-\* Configuração de Diagnostic Settings para envio de logs
-
-\* Consulta de eventos usando KQL
-
-\* Investigação de redefinição de senha de usuário
-
-
-
-\## Consultas KQL utilizadas
-
-
-
-\### Consulta de eventos de login
-
-
+### Sign-in activity
 
 ```kusto
-
 SigninLogs
-
 | sort by TimeGenerated desc
-
 | take 20
-
 ```
 
-
-
-\### Consulta de eventos administrativos de usuário
-
-
+### User-related audit events
 
 ```kusto
-
 AuditLogs
-
 | where OperationName contains "user"
-
 | sort by TimeGenerated desc
-
 ```
 
-
-
-\### Consulta de eventos relacionados a senha
-
-
+### Password-related audit events
 
 ```kusto
-
 AuditLogs
-
 | where OperationName contains "password"
-
 | sort by TimeGenerated desc
-
 ```
 
+## Evidence
 
+### Sign-in Logs
 
-\## Evidências
+![Sign-in Logs](images/01-signinlogs-query.png)
 
+### User Audit Logs
 
+![User Audit Logs](images/02-auditlogs-user-query.png)
 
-\### Consulta de logs de entrada
+### Audit Event Details
 
+![Audit Event Details](images/03-auditlogs-event-details.png)
 
+## Investigation Summary
 
-!\[SigninLogs Query](images/01-signinlogs-query.png)
+A password reset event for the user Maria Souza was investigated.
 
+The following fields were analyzed:
 
+- InitiatedBy
+- TargetResources
+- Result
+- ActivityDisplayName
+- ActivityDateTime
 
-\### Consulta de eventos administrativos
+The investigation confirmed that the administrative action was successfully logged and could be reviewed through Log Analytics using KQL.
 
+## Skills Demonstrated
 
+- Identity and Access Management (IAM)
+- Azure RBAC
+- Azure Monitoring
+- Microsoft Sentinel
+- Log Analytics
+- KQL Querying
+- Audit Log Investigation
+- Cloud Security Fundamentals
 
-!\[AuditLogs User Query](images/02-auditlogs-user-query.png)
+## Outcome
 
-
-
-\### Detalhes do evento investigado
-
-
-
-!\[AuditLogs Event Details](images/03-auditlogs-event-details.png)
-
-
-
-\## Investigação realizada
-
-
-
-Foi investigado um evento de redefinição de senha da usuária Maria Souza.
-
-
-
-Campos analisados:
-
-
-
-\* InitiatedBy: responsável pela ação
-
-\* TargetResources: usuário afetado
-
-\* Result: resultado da operação
-
-\* ActivityDisplayName: tipo da atividade
-
-\* ActivityDateTime: data e hora do evento
-
-
-
-\## Resultado
-
-
-
-O laboratório demonstrou a capacidade de configurar um fluxo básico de monitoramento de identidade no Azure, desde a geração dos eventos no Microsoft Entra ID até a investigação dos logs no Log Analytics usando KQL.
-
-
-
-\## Aprendizados
-
-
-
-\* Como enviar logs do Microsoft Entra ID para o Log Analytics
-
-\* Como validar ingestão de logs
-
-\* Como consultar SigninLogs e AuditLogs
-
-\* Como investigar eventos administrativos
-
-\* Como identificar ações sensíveis como redefinição de senha
-
-\* Como relacionar IAM, RBAC, Log Analytics e Microsoft Sentinel
-
-
-
+This lab demonstrates the ability to configure identity monitoring in Azure, collect security-relevant logs, and perform basic investigation using Microsoft Sentinel and KQL.
