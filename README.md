@@ -2,6 +2,19 @@
 
 ![Azure](https://img.shields.io/badge/Azure-Cloud-blue) ![Microsoft Sentinel](https://img.shields.io/badge/Microsoft-Sentinel-green) ![KQL](https://img.shields.io/badge/KQL-Query%20Language-orange) ![IAM](https://img.shields.io/badge/IAM-Identity%20Management-red)
 
+## Skills Demonstrated
+
+- Identity and Access Management (IAM)
+- Microsoft Entra ID
+- Azure RBAC
+- Azure Monitor
+- Log Analytics Workspace
+- Microsoft Sentinel
+- Kusto Query Language (KQL)
+- Audit Log Investigation
+- Security Monitoring
+- Security Operations (SOC)
+  
 ## Project Highlights
 
 - Microsoft Entra ID administration
