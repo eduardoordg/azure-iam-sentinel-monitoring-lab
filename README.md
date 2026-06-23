@@ -37,16 +37,21 @@ RBAC was configured by assigning the Reader role to the TI group at the Resource
 
 ```text
 Microsoft Entra ID
-        ↓
-Users and Groups
-        ↓
-Diagnostic Settings
-        ↓
-Log Analytics Workspace
-        ↓
-Microsoft Sentinel
-        ↓
-KQL Investigation
+        │
+        ▼
+ Users & Groups
+        │
+        ▼
+ Diagnostic Settings
+        │
+        ▼
+ Log Analytics Workspace
+        │
+        ▼
+ Microsoft Sentinel
+        │
+        ▼
+ KQL Investigation
 ```
 
 ## Activities Performed
@@ -133,6 +138,7 @@ This lab demonstrates the ability to configure identity monitoring in Azure, col
 ## Author
 
 **Eduardo Rodrigues**  
+
 Cloud Infrastructure | Azure | IAM | Security Monitoring
 
 - GitHub: https://github.com/eduardoordg
